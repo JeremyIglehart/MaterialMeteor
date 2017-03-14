@@ -1,6 +1,24 @@
 import React, { Component } from 'react'
 import { createContainer } from 'meteor/react-meteor-data'
 
+import { createStyleSheet } from 'jss-theme-reactor'
+import withStyles from 'material-ui/styles/withStyles'
+
+import AppBar from 'material-ui/AppBar'
+import Toolbar from 'material-ui/Toolbar'
+import Button from 'material-ui/Button'
+
+const styleSheet = createStyleSheet('SimpleAppBar', () => ({
+  root: {
+    position: 'relative',
+    marginTop: 30,
+    width: '100%',
+  },
+  appBar: {
+    position: 'relative',
+  },
+}))
+
 class App extends Component {
   constructor(props) {
     super(props)
@@ -8,7 +26,13 @@ class App extends Component {
   render() {
     return (
       <div className="app">
-        <h1>Hello World</h1>
+        <div className={this.props.classes.root}>
+        <AppBar className={this.props.classes.appBar}>
+          <Toolbar>
+            <Text type="title" colorInherit>Material Meteor</Text>
+          </Toolbar>
+        </AppBar>
+        </div>
       </div>
     )
   }
@@ -17,4 +41,4 @@ class App extends Component {
 export default createContainer(() => {
 
   return { loading: true }
-}, App)
+}, withStyles(styleSheet)(App))
