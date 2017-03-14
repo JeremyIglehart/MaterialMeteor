@@ -7,11 +7,11 @@ import withStyles from 'material-ui/styles/withStyles'
 import AppBar from 'material-ui/AppBar'
 import Toolbar from 'material-ui/Toolbar'
 import Button from 'material-ui/Button'
+import Text from 'material-ui/Text'
 
 const styleSheet = createStyleSheet('SimpleAppBar', () => ({
   root: {
     position: 'relative',
-    marginTop: 30,
     width: '100%',
   },
   appBar: {
